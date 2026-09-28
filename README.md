@@ -1,1 +1,1 @@
-# Fingure-print-based-blood-groud-Detection-
+# Finger-print-based-blood-group-Detection-
