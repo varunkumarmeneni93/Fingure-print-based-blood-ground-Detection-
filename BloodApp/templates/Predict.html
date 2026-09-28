@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+<head>
+<title>Blood Group Prediction</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link href="{% static 'style.css' %}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	function validate(formObj)
+	{
+	if(formObj.t1.value.length==0)
+	{
+	alert("Please upload test imagee");
+	formObj.t1.focus();
+	return false;
+	}
+	return true;
+	}
+	</script>
+	
+</head>
+<style>
+body {
+  background-image: url("{% static 'images/back.jpg' %}");
+}
+</style>
+<body>
+<div class="main">
+  <div class="main_resize">
+    <div class="header">
+      <div class="logo">
+        <h1><span>A Novel Approach to Predict Blood Group using Fingerprint Map Reading</span><small></small></h1>
+      </div>
+    </div>
+    <div class="content">
+      <div class="content_bg">
+        <div class="menu_nav">
+          <ul>      
+     <li><a href="{% url 'TrainML' %}"><font size="3" color="black">Train ML Algorithm</a></li>
+	 <li><a href="{% url 'Predict' %}"><font size="3" color="black">Prediction</a></li>
+	 <li><a href="{% url 'index' %}"><font size="3" color="black">Logout</a></li>
+   </ul>       
+        </div>
+        <div class="hbg"><img src="{% static 'images/header_images.jpg' %}" width="1010" height="286" alt="" /></div>
+      				<center>
+<form name="f1" method="post" action={% url 'PredictAction' %} enctype="multipart/form-data" onsubmit="return validate(this);">
+{% csrf_token %}<br/>
+   <h2><b>Blood Group Prediction Screen</b></h2>
+   
+	<font size="" color="red"><center>{{ data }}</center></font>
+						
+						<table align="center" width="30%" >
+			 <tr><td><font size='' color="black"><b>Upload&nbsp;Test&nbsp;Image</b></td>
+			 <td><input type="file" name="t1" style="font-family: Comic Sans MS" size="25"></td></tr>
+         
+		 
+			<tr><td></td><td><input type="submit" value="submit"></td>
+			</table>
+				</div>	
+					
+				</div>
+				
+					
+	</body>
+</html>
